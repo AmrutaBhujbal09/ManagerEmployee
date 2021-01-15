@@ -3,9 +3,10 @@ from rest_framework import serializers
 from .models import User
 from django.contrib.auth import authenticate
 
-
+# signup serializer
 class UserSignUpSerializer(serializers.ModelSerializer):
     class Meta:
+        # model name
         model=User
         fields=["first_name","last_name","password","email","username","address","dob","company",
                 "Status_Choice"]
@@ -26,6 +27,8 @@ class UserSignUpSerializer(serializers.ModelSerializer):
         return userval
 
 
+# signin serializer
+# serializers : In Django Rest Framework serializers are responsible for converting complex data such as queryset & model instances to python native datatypes that can be render into JSON ,XML.
 class UserLoginSerializer(serializers.Serializer):
     email = serializers.CharField(required=True)
     password = serializers.CharField(required=True)

@@ -18,7 +18,7 @@ class Employee(models.Model):
     email=models.EmailField('email_address',unique=True)
     first_name=models.CharField(max_length=50,blank=False,null=True,default='kiran')
     last_name=models.CharField(max_length=50,blank=False,null=True)
-    #by default null valuse is false means its mandetory to provide a value,blank=false
+    # by default null valuse is false means its mandetory to provide a value,blank=false
     address=models.TextField(max_length=60,null=True,blank=False)
     dob=models.DateField(null=True,blank=False)
     company=models.TextField(max_length=40,null=True,blank=False)

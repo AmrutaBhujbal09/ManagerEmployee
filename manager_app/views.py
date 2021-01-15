@@ -12,9 +12,11 @@ class UserSignUpAPIView(CreateAPIView):
 
     def post(self,request, *args, **kwargs):
         print("REQUEST_DATA",request.data)
-        serialize=self.get_serializer(data=request.data)
 
+        # get_serializer() method return the serializer instance that should be used for validating and deserializing input and serializing output
+        serialize=self.get_serializer(data=request.data)
         if serialize.is_valid():
+            # .save() method will either create a new model instance or update excisting instance.
             serialize.save()
             obj=User.objects.get(email=request.data["email"])
 
