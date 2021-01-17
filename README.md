@@ -15,13 +15,8 @@ Serialization that supports both ORM and non-ORM data sources.
 Customizable all the way down - just use regular function-based views if you don't need the more powerful features.
 Extensive documentation, and great community support.
 
-
-
-
-
-
 Requirements
-Python (3.9)
+Python (3.9),
 Django (3.1)
 .
 
@@ -128,29 +123,3 @@ About
 Web APIs for Django. 🎸
 
 www.django-rest-framework.org
-Topics
-python api django rest
-Resources
- Readme
-License
- View license
-Releases 124
-Version 3.9.3
-Latest
-Apr 29, 2019
-+ 123 releases
-Sponsor this project
-https://fund.django-rest-framework.org/topics/funding/
-Packages
-No packages published
-Used by 187k
-@rohan9769
-@tharcissie
-@ArtemVolik
-@8490
-@zahirekrem09
-@Rouvas
-@aghyadalbalkhi-ASAC
-@furkan-cloud
-+ 187,062
-Contributors 1,031
