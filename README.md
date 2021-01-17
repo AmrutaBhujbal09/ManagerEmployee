@@ -16,7 +16,7 @@ Customizable all the way down - just use regular function-based views if you don
 Extensive documentation, and great community support.
 
 
-Below: Screenshot from the browsable API
+
 
 
 
