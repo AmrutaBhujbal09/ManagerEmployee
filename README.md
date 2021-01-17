@@ -4,7 +4,8 @@ Manager Employee Portal
 Awesome web-browsable Web APIs.
 
 Overview
-Django REST framework is a powerful and flexible toolkit for building Web APIs.
+
+    Django REST framework is a powerful and flexible toolkit for building Web APIs.
 
 Some reasons you might want to use REST framework:
 
@@ -20,17 +21,22 @@ Below: Screenshot from the browsable API
 
 
 Requirements
-Python (3.5, 3.6, 3.7, 3.8, 3.9)
-Django (2.2, 3.0, 3.1)
-We highly recommend and only officially support the latest patch release of each Python and Django series.
+Python (3.9)
+Django (3.1)
+.
 
 Installation
 Install using pip...
 
-pip install djangorestframework
+
+pip install djangorestframework ,
+pip intsall mysqlclient ,
 Add 'rest_framework' to your INSTALLED_APPS setting.
 
-INSTALLED_APPS = [
+
+
+ [
+    
     ...
     'rest_framework',
 ]
@@ -80,7 +86,9 @@ from django.contrib import admin
 from django.urls import path,include
 
 
+
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
     path('manager/',include('manager_app.urls')),
     path('employee/',include('employee_app.urls'))
@@ -89,7 +97,10 @@ We'd also like to configure a couple of settings for our API.
 
 Add the following to your settings.py module:
 
+
+
 INSTALLED_APPS = [
+    
     ...  # Make sure to include the default installed apps here.
     'rest_framework',
 ]
