@@ -56,7 +56,9 @@ from rest_framework import serializers,  views, routers
 
 
 class UserSignUpSerializer(serializers.ModelSerializer):
+    
     class Meta:
+    
         # model name
         model=User
         fields=["first_name","last_name","password","email","username","address","dob","company",
@@ -76,6 +78,7 @@ class UserSignUpSerializer(serializers.ModelSerializer):
 
 from django.contrib import admin
 from django.urls import path,include
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
