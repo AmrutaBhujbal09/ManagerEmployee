@@ -8,19 +8,11 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-
-    Status_Choice=(
-        ('ACTIVE','Active'),
-        ('INACTIVE','Inactive')
-    )
-
-    # By default null  & blank value is False .
-    # email should be unique.
     email=models.EmailField('email_address',unique=True)
     address=models.TextField(max_length=60,null=True,blank=False)
     dob=models.DateField(null=True,blank=False)
     company=models.TextField(max_length=40,null=True,blank=False)
-    status_Choice=models.CharField(max_length=10,null=True,blank=False,choices=Status_Choice,default='Active')
+   # status_Choice=models.CharField(max_length=10,null=True,blank=False,choices=Status_Choice,default='Active')
 
     #USERNAME_FIELD ='email' is uses when we want to use 'email field as the username field.
 

@@ -6,7 +6,7 @@ from rest_framework.generics import(GenericAPIView,CreateAPIView,ListAPIView,Des
 from rest_framework.response import Response
 from .serializers import (AddEmpSerializer,UpdateEmpSerializer)
 from .models import Employee
-
+from manager_app.models import User
 class AddEmpAPIView(CreateAPIView):
     serializer_class = AddEmpSerializer
     # post is a HTTP method.You can used this method during creating/inserting data.
@@ -67,5 +67,86 @@ class UpdateEmpAPIView(UpdateAPIView):
             self.partial_update(serializer)
 
         return Response(serializer.data,status.HTTP_200_OK)
+
+
+class EMPListView(ListAPIView):
+    serializer_class = AddEmpSerializer
+
+
+    def get_queryset(self):
+        get_status = self.request.data["Status"]
+        emp_data = Employee.objects.filter(status=get_status)
+        return emp_data
+
+    def post(self,request, *args, **kargs):
+        data = list()
+        get_status = request.data["Status"]
+        emp_data = Employee.objects.filter(Status=get_status)
+
+        serializer = self.get_serializer(emp_data,many=True)
+
+        for employee_app in serializer.data:
+            get_user=User.objects.filter(id=employee_app["manager_id"]).values("first_name","last_name","email","address",
+                                                                       "mobile","company","dob")
+
+            print("USER DETAILS",get_user)
+
+            data.append({
+                "id": employee_app["id"],
+                "First_name": employee_app["first_name"],
+                "last_name": employee_app["last_name"],
+                "Status": employee_app["Status"],
+                "address": employee_app["address"],
+                "company": Employee["company"],
+                "mobile": employee_app["mobile"],
+                "city": employee_app["city"],
+                "dob": employee_app["dob"],
+                "manager_id": employee_app["manager_id"],
+                "first_name": get_user[0]["first_name"],
+                "last_name": get_user[0]["last_name"],
+                "email": get_user[0]["email"],
+                "address": get_user[0]["address"],
+                "company": get_user[0]["company"],
+                "dob": get_user[0]["dob"]
+            })
+        return Response(data,status.HTTP_200_OK)
+
+
+class getEmpDetailsAPIView(ListAPIView):
+    serializer_class = AddEmpSerializer
+
+    def get(self, request, *args, **kwargs):
+        data = list()
+        emp_id = self.kwargs["pk"]
+        emp_data = Employee.objects.filter(id=emp_id)
+
+        serializer = self.get_serializer(emp_data, many=True)
+
+        for employee_app in serializer.data:
+            get_user = User.objects.filter(id=employee_app["manager_id"]).values("first_name", "last_name", "email", "address",
+                                                                      "dob", "company")
+
+            print("USER DETAILS", get_user)
+
+            data.append({
+                "id": employee_app["id"],
+                "First_name":employee_app["first_name"],
+                "last_name": employee_app["last_name"],
+                "Status": employee_app["Status"],
+                "address": employee_app["address"],
+                "company": employee_app["company"],
+                "mobile": employee_app["mobile"],
+                "city": employee_app["city"],
+                "dob": employee_app["dob"],
+                "manager_id": employee_app["manager_id"],
+                "first_name": get_user[0]["first_name"],
+                "last_name": get_user[0]["last_name"],
+                "email": get_user[0]["email"],
+                "address": get_user[0]["address"],
+                "company": get_user[0]["company"],
+                "dob": get_user[0]["dob"],
+            })
+        return Response(data, status.HTTP_200_OK)
+
 
 

@@ -9,7 +9,7 @@ class UserSignUpSerializer(serializers.ModelSerializer):
         # model name
         model=User
         fields=["first_name","last_name","password","email","username","address","dob","company",
-                "Status_Choice"]
+                ]
 
 
     def create(self,validated_data):
@@ -22,7 +22,7 @@ class UserSignUpSerializer(serializers.ModelSerializer):
             address=validated_data.pop('address'),
             dob=validated_data.pop('dob'),
             company=validated_data.pop('company'),
-            Status_Choice=validated_data.pop('Status_Choice')
+            #Status_Choice=validated_data.pop('Status_Choice')
         )
         return userval
 

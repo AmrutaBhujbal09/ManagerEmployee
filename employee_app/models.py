@@ -22,9 +22,9 @@ class Employee(models.Model):
     address=models.TextField(max_length=60,null=True,blank=False)
     dob=models.DateField(null=True,blank=False)
     company=models.TextField(max_length=40,null=True,blank=False)
-    user_id = models.ForeignKey(User,null=False,blank=False, on_delete=models.CASCADE)
+    manager_id = models.ForeignKey(User,null=False,blank=False, on_delete=models.CASCADE)
     mobile=models.TextField(max_length=10,null=True)
     city=models.TextField(max_length=10,null=True)
     password=models.CharField(max_length=50,default='kiran')
-    Status_Choice=models.CharField(max_length=10,null=True,blank=False,choices=Status_Choice,default='Active')
+    Status=models.CharField(max_length=10,null=True,blank=False,choices=Status_Choice,default='Active')
 
