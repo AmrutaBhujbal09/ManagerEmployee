@@ -3,7 +3,7 @@ Manager Employee Portal
 
 pip install virtualenv,
 pip install Django,
-pip install mysqlcliend
+pip install mysqlclient
 
 First I create virtualenvironment .Go inside virtualenvironment variable  & activate it.
 Install mysqlclient package for database connection. We have to add db name ,port ,host in setting.py file.
