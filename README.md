@@ -1,8 +1,8 @@
 # ManagerEmployee
 Manager Employee Portal
 
-pip install virtualenv
-pip install Django
+pip install virtualenv,
+pip install Django,
 pip install mysqlcliend
 
 First I create virtualenvironment .Go inside virtualenvironment variable  & activate it.
