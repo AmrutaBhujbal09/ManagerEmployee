@@ -112,10 +112,6 @@ Or to create a new user:
 Documentation & Support
 Full documentation for the project is available at https://www.django-rest-framework.org/.
 
-For questions and support, use the REST framework discussion group, or #restframework on freenode IRC.
-
-You may also want to follow the author on Twitter.
-
 Security
 Please see the security policy.
 
